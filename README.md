@@ -1,5 +1,7 @@
 # BaoLianDeng
 
+[![Build Status](https://travis-ci.org/codexss/BaoLianDeng.svg?branch=master)](https://travis-ci.org/codexss/BaoLianDeng)
+
 An android client for Lantern, based on SmartProxy.
 
 # Build 
