@@ -1,0 +1,21 @@
+language: android
+
+jdk:
+    - oraclejdk8
+
+android:
+  components:
+    - tools
+    - android-24
+    - build-tools-24.0.0
+    - extra-android-m2repository
+
+script: 
+    - ./gradlew build
+
+after_success: 
+    - >
+      curl http://www.pgyer.com/apiv1/app/upload \
+      -F uKey="$PGYER_APP_KEY" \
+      -F _api_key="$PGYER_API_KEY" \
+      -F file="app/bu ild/outputs/apk/app-debug.apk" > /dev/null
