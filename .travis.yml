@@ -14,4 +14,4 @@ script:
     - ./gradlew build
 
 after_success: 
-    - curl -F "file=app/build/outputs/apk/app-debug.apk" -F "uKey=${PGYER_APP_KEY}" -F "_api_key=${PGYER_API_KEY}" https://qiniu-storage.pgyer.com/apiv1/app/upload
+    - curl -F "file=@app/build/outputs/apk/app-debug.apk" -F "uKey=${PGYER_APP_KEY}" -F "_api_key=${PGYER_API_KEY}" https://qiniu-storage.pgyer.com/apiv1/app/upload
