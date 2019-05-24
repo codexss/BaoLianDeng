@@ -13,5 +13,10 @@ android:
 script: 
     - ./gradlew build
 
-after_success: 
-    - curl https://qiniu-storage.pgyer.com/apiv1/app/upload -F "uKey=${PGYER_APP_KEY}" -F "_api_key=${PGYER_API_KEY}" -F "file=@app/build/outputs/apk/app-debug.apk" &>/dev/null
+deploy:
+  provider: releases
+  api_key: "${GH_TOKEN}"
+  file: "@app/build/outputs/apk/app-debug.apk"
+  skip_cleanup: true
+  on:
+    tags: true
